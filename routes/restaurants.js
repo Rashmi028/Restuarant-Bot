@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const restaurantController = require('../controllers/restaurantController');
+const {getRestaurants, addRestaurant } = require('../controllers/restaurantController');
 const auth = require('../middleware/auth');
 
-router.get('/', auth, restaurantController.getRestaurants);
-router.post('/', auth, restaurantController.addRestaurant);
+// Example route definitions
+router.get('/restaurants', getRestaurants);  // Correct: `getRestaurants` should be a function
+router.post('/restaurants', addRestaurant);
 
 module.exports = router;
